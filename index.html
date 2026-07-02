@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>한홍구 | HAN HONGGU — Personal Universe</title>
+<meta name="description" content="여행과 건강한 삶을 추구하는 한홍구의 개인 홈페이지. 유럽 여행 기록, 마라톤과 등산, 무음주 라이프스타일을 소개합니다.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Preloader -->
+<div id="preloader">
+  <div class="loader-core">
+    <span class="loader-ring"></span>
+    <span class="loader-text">H·G</span>
+  </div>
+</div>
+
+<!-- Background canvas (particle network) -->
+<canvas id="bg-canvas"></canvas>
+<div class="scan-overlay" aria-hidden="true"></div>
+
+<!-- ===== NAVIGATION ===== -->
+<header id="site-header">
+  <nav class="navbar" id="navbar">
+    <a href="#home" class="nav-logo">
+      <span class="logo-bracket">[</span>HAN.HG<span class="logo-bracket">]</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" class="nav-link active" data-section="home">HOME</a></li>
+      <li><a href="#about" class="nav-link" data-section="about">PROFILE</a></li>
+      <li><a href="#travel" class="nav-link" data-section="travel">TRAVEL LOG</a></li>
+      <li><a href="#lifestyle" class="nav-link" data-section="lifestyle">LIFESTYLE</a></li>
+      <li><a href="#gallery" class="nav-link" data-section="gallery">GALLERY</a></li>
+      <li><a href="#contact" class="nav-link" data-section="contact">CONTACT</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero-section">
+    <div class="hero-grid-lines" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow"><span class="pulse-dot"></span> WELCOME TO MY PERSONAL UNIVERSE</p>
+      <h1 class="hero-title">
+        <span class="hero-title-en">HAN HONGGU</span>
+        <span class="hero-title-kr">한 홍 구</span>
+      </h1>
+      <p class="hero-subtitle">건설엔지니어 · 경관을 설계하는 시선으로 세상을 여행하다</p>
+      <p class="hero-desc">53세, 술 대신 마라톤과 등산을 선택한 인생 2막 러너.<br>
+        유럽 6개국을 두 발로 걸으며 새로운 풍경과 데이터를 수집합니다.</p>
+      <div class="hero-cta">
+        <a href="#about" class="btn btn-primary"><i class="fa-solid fa-satellite-dish"></i> 프로필 보기</a>
+        <a href="#travel" class="btn btn-outline"><i class="fa-solid fa-earth-europe"></i> 여행 기록</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num" data-count="6">0</span>
+          <span class="hero-stat-label">유럽 방문국</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" data-count="53">0</span>
+          <span class="hero-stat-label">현재 나이</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" data-count="0">0</span>
+          <span class="hero-stat-label">음주 (Day/Week)</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" data-count="100">0</span>
+          <span class="hero-stat-label">건강 몰입도 %</span>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-indicator" aria-label="아래로 스크롤">
+      <span>SCROLL</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- ===== ABOUT / PROFILE ===== -->
+  <section id="about" class="section about-section">
+    <div class="section-head">
+      <span class="section-tag">// 01 PROFILE</span>
+      <h2 class="section-title">시스템을 설계하듯, <span class="text-gradient">삶을 설계합니다</span></h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="profile-orbit">
+          <div class="profile-core">
+            <i class="fa-solid fa-user-astronaut"></i>
+          </div>
+          <span class="orbit-ring ring-1"></span>
+          <span class="orbit-ring ring-2"></span>
+          <span class="orbit-chip chip-1"><i class="fa-solid fa-person-running"></i></span>
+          <span class="orbit-chip chip-2"><i class="fa-solid fa-mountain-sun"></i></span>
+          <span class="orbit-chip chip-3"><i class="fa-solid fa-plane"></i></span>
+          <span class="orbit-chip chip-4"><i class="fa-solid fa-glass-water"></i></span>
+        </div>
+      </div>
+
+      <div class="about-text reveal">
+        <p class="about-lead">
+          안녕하십니까, <strong>한홍구</strong>입니다.<br>
+          건설엔지니어이자 공무원으로서 경관 설계 업무를 담당하며,
+          도시와 자연이 만나는 접점을 고민해왔습니다. 그 시선은 자연스럽게
+          <strong class="text-cyan">여행</strong>으로 이어졌고, 유럽의 골목과 산맥을 직접 걸으며
+          설계도면 밖의 진짜 풍경을 배우고 있습니다.
+        </p>
+        <p class="about-lead">
+          53세, 인생의 중반을 지나며 저는 <strong class="text-magenta">술을 완전히 끊었습니다.</strong>
+          대신 그 자리를 <strong>마라톤과 등산</strong>으로 채웠습니다.
+          속도보다 지속가능성, 순간보다 축적을 믿는 사람입니다.
+          앞으로도 두 발과 두 눈으로 세계 곳곳의 경관을 기록해 나갈 예정입니다.
+        </p>
+
+        <div class="about-info-grid">
+          <div class="info-card">
+            <i class="fa-solid fa-helmet-safety"></i>
+            <div>
+              <span class="info-label">직업</span>
+              <span class="info-value">건설엔지니어 · 공무원 (경관 디자인)</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <i class="fa-solid fa-cake-candles"></i>
+            <div>
+              <span class="info-label">나이</span>
+              <span class="info-value">53세</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <i class="fa-solid fa-earth-europe"></i>
+            <div>
+              <span class="info-label">여행 지역</span>
+              <span class="info-value">이탈리아 · 크로아티아 · 슬로베니아 · 터키 · 프랑스 · 스페인</span>
+            </div>
+          </div>
+          <div class="info-card">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <div>
+              <span class="info-label">라이프스타일</span>
+              <span class="info-value">무(無)음주 · 마라톤 · 등산</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRAVEL LOG ===== -->
+  <section id="travel" class="section travel-section">
+    <div class="section-head">
+      <span class="section-tag">// 02 TRAVEL LOG</span>
+      <h2 class="section-title">유럽을 가로지른 <span class="text-gradient">경관 탐사 기록</span></h2>
+      <p class="section-desc">경관 디자이너의 시선으로 담은 유럽 6개국의 순간들. 각 도시의 구조와 색을 눈에 새겼습니다.</p>
+    </div>
+
+    <div class="travel-grid">
+      <article class="travel-card reveal" style="--delay:0s">
+        <div class="travel-card-img">
+          <img src="https://sspark.genspark.ai/cfimages?u1=al0y6TiVYV5WFUST1mbB7kWAhjql9mxLpvldW%2FYgLLyWc7iSNULwDdKrUa0vTYwPs3%2B6qCQxipxWGfa7%2BrmDR9dQUjfM0JRy0pltemJxqOyv&u2=ewYuKoXpmKQMtcTK&width=2560" alt="이탈리아 로마 콜로세움" loading="lazy">
+          <span class="travel-card-tag">01 · ITALY</span>
+        </div>
+        <div class="travel-card-body">
+          <h3>이탈리아 <span>Italy</span></h3>
+          <p>콜로세움의 웅장한 구조와 로마의 시간이 쌓인 골목길. 고대 건축이 만든 경관의 원형을 마주했습니다.</p>
+        </div>
+      </article>
+
+      <article class="travel-card reveal" style="--delay:0.1s">
+        <div class="travel-card-img">
+          <img src="https://sspark.genspark.ai/cfimages?u1=Uj9CGxQMJWPdCTrBkqy3RAmH3Li66LebXl4OEIOexENOZ1Vb2tZ5b5L2UWxGmXHuwbUJDpVqFSMufwyN1pWX4bSKQWvHrvDmgVW5VgW5jUIF9bh81IPW3MuY2y2oaxyUs2DYjPru6Cw13aUihauyAH6JJ6bbT%2BAFy%2Bb%2BqqbQOClH7xsHTPgYverjYoaY%2Ff1mZMqcyt8%3D&u2=KDlHXqJ4uuRGWnna&width=2560" alt="크로아티아 두브로브니크 해안" loading="lazy">
+          <span class="travel-card-tag">02 · CROATIA</span>
+        </div>
+        <div class="travel-card-body">
+          <h3>크로아티아 <span>Croatia</span></h3>
+          <p>두브로브니크 성벽 위에서 내려다본 아드리아해. 붉은 지붕과 코발트빛 바다의 대비가 인상적이었습니다.</p>
+        </div>
+      </article>
+
+      <article class="travel-card reveal" style="--delay:0.2s">
+        <div class="travel-card-img">
+          <img src="https://sspark.genspark.ai/cfimages?u1=57JWRQnmGOr1HkQAMJW3nhcR71ofuks%2BOD9HzEJDMJ0E7aF3W2wYNze09YQRsHwBLre6LoIF5dCHQcL9qSKJbw231mNf7V6JvYKQ12v3hb76n3SeAmk%3D&u2=RPYVOxBUOCndJpT1&width=2560" alt="슬로베니아 블레드 호수" loading="lazy">
+          <span class="travel-card-tag">03 · SLOVENIA</span>
+        </div>
+        <div class="travel-card-body">
+          <h3>슬로베니아 <span>Slovenia</span></h3>
+          <p>블레드 호수 위 작은 섬과 알프스의 반영. 자연이 만든 완벽한 경관 조경을 직접 확인했습니다.</p>
+        </div>
+      </article>
+
+      <article class="travel-card reveal" style="--delay:0.3s">
+        <div class="travel-card-img">
+          <img src="https://sspark.genspark.ai/cfimages?u1=Bt30wSJWPogHglqe4zo3vBic%2BIfwZ59XT4Ya57wmCSTTW7gs%2Fs8cXgNTcKhW90m9ZUOxZosX6btvHYykL6Dh%2FUjO3Shz9KNWsfJ8bZJBynGktAaiqeVcF8vvKUhk1jPoXk%2B1Wiqjy1ovJ1x%2Fhg%3D%3D&u2=RM%2Fy85hpK3iUJIdv&width=2560" alt="터키 카파도키아 열기구" loading="lazy">
+          <span class="travel-card-tag">04 · TURKIYE</span>
+        </div>
+        <div class="travel-card-body">
+          <h3>터키 <span>Türkiye</span></h3>
+          <p>카파도키아 하늘을 수놓은 열기구와 기암괴석의 지형. 지질이 만든 경관 스케일에 압도됐습니다.</p>
+        </div>
+      </article>
+
+      <article class="travel-card reveal" style="--delay:0.4s">
+        <div class="travel-card-img">
+          <img src="https://sspark.genspark.ai/cfimages?u1=AfRcBePv%2FvtPyDIBnVKelDUIJaOgcjJ7V1sExGZcHsK13nik8Z3uEk4D6S8OKcWExsxgofXYSV%2FyvrVwvN9tNOEcN56fkNoyoxt4us7hmtmIfm7qxeYMVdTTAspfRRGHGXCDr3d3Ww%3D%3D&u2=%2BaA93yTsF6JiaqXa&width=2560" alt="프랑스 파리 에펠탑" loading="lazy">
+          <span class="travel-card-tag">05 · FRANCE</span>
+        </div>
+        <div class="travel-card-body">
+          <h3>프랑스 <span>France</span></h3>
+          <p>새벽 여명 속 에펠탑의 실루엣. 도시계획과 랜드마크가 만드는 스카이라인 경관을 연구했습니다.</p>
+        </div>
+      </article>
+
+      <article class="travel-card reveal" style="--delay:0.5s">
+        <div class="travel-card-img">
+          <img src="https://sspark.genspark.ai/cfimages?u1=RcKpTl7bSIHyAQqFnUJMi9qYDaS8Xr8vi%2FnutP9ai4bFU%2Bjxzd1F8RY8m2zzHLkKuIhi7%2FVBsmZwOKSQrNZQmjgSZhBJWYt8gzbycbdXWlywoTgnd0WN7v1xZl44fHDapYJyLe0hJgqmJ3nuWxjXMHwSJcM%2B&u2=80L8UDibwQwJOqML&width=2560" alt="스페인 사그라다 파밀리아" loading="lazy">
+          <span class="travel-card-tag">06 · SPAIN</span>
+        </div>
+        <div class="travel-card-body">
+          <h3>스페인 <span>Spain</span></h3>
+          <p>가우디의 사그라다 파밀리아, 유기적 곡선의 건축미. 설계자의 관점에서 가장 오래 머문 곳입니다.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== LIFESTYLE / HEALTH ===== -->
+  <section id="lifestyle" class="section lifestyle-section">
+    <div class="section-head">
+      <span class="section-tag">// 03 LIFESTYLE</span>
+      <h2 class="section-title">술 대신 <span class="text-gradient">페이스(Pace)를 선택하다</span></h2>
+      <p class="section-desc">53세, 인생 후반부의 삶의 질을 위해 무음주와 유산소 루틴을 시스템처럼 운영하고 있습니다.</p>
+    </div>
+
+    <div class="lifestyle-grid">
+      <article class="life-card reveal">
+        <div class="life-card-img">
+          <img src="https://sspark.genspark.ai/cfimages?u1=RlrNqE7BPdJQUn5nr8aAdQiUcT0pVIcBdVRinGZAGgf%2Bca4unURq5WLBAintdIzRlftPT2WH3YzelRidqaFzItEDjg8iHqJnJuDmkVanon44oJkMZEEi8W0%3D&u2=4DBcZ1A3apepN4vp&width=2560" alt="마라톤 결승선" loading="lazy">
+        </div>
+        <div class="life-card-body">
+          <i class="fa-solid fa-person-running life-icon"></i>
+          <h3>마라톤</h3>
+          <p>꾸준한 러닝으로 심폐지구력을 관리하며, 완주할 때마다 스스로 세운 기록을 갱신하고 있습니다.</p>
+        </div>
+      </article>
+
+      <article class="life-card reveal" style="--delay:0.15s">
+        <div class="life-card-img">
+          <img src="https://sspark.genspark.ai/cfimages?u1=jrRIS7VEIwuTWyF%2FM6JaYceVMKhHA0%2By3POqTd0gXI7qAe9gvPOmzYfORIt5woJ7aMk2799zslRiDq2lKezqu%2FQYxOMmkw1%2FdPDiqO9oM0jDbprKbExJet%2FDqc5v5CdTR6lURB2LDxZCddEuOcnUxHyQyY5WO2AmdJMV12OhLzM90ZMxDNfKyBbBxCpTVu8LvylmzKHDAT2MpTEJoPusS9RYRVLYpFb2xlf4nIZhs9U%2BJYzpsPQ%2ByxUG%2F1T79PZZYPQe0nmzGLYKTczvJXqyR6u9Ft4Vy5dfwZAAakW4Jw%3D%3D&u2=MB2uORAbXHa%2BV2CB&width=2560" alt="산 정상 등반" loading="lazy">
+        </div>
+        <div class="life-card-body">
+          <i class="fa-solid fa-mountain-sun life-icon"></i>
+          <h3>등산</h3>
+          <p>정상에서 내려다보는 경관은 제 본업과 가장 맞닿아 있는 순간입니다. 주말마다 산을 오르며 체력을 다집니다.</p>
+        </div>
+      </article>
+
+      <article class="life-card reveal" style="--delay:0.3s">
+        <div class="life-card-img life-card-img-icon">
+          <div class="no-alcohol-visual">
+            <i class="fa-solid fa-ban"></i>
+            <i class="fa-solid fa-wine-glass"></i>
+          </div>
+        </div>
+        <div class="life-card-body">
+          <i class="fa-solid fa-heart-pulse life-icon"></i>
+          <h3>무(無)음주</h3>
+          <p>술을 완전히 끊은 후, 회복 속도와 수면의 질이 눈에 띄게 좋아졌습니다. 건강한 삶의 질을 위한 확고한 선택입니다.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="balance-panel reveal">
+      <div class="balance-text">
+        <span class="section-tag">LIFE BALANCE INDEX</span>
+        <h3>나만의 라이프스타일 밸런스 지수</h3>
+        <p>체력, 지속성, 절제, 회복력, 목표의식을 스스로 점검하며 기록한 참고용 지표입니다.</p>
+      </div>
+      <div class="balance-chart-wrap">
+        <canvas id="balanceChart" height="320"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section id="gallery" class="section gallery-section">
+    <div class="section-head">
+      <span class="section-tag">// 04 GALLERY</span>
+      <h2 class="section-title">순간을 담은 <span class="text-gradient">비주얼 아카이브</span></h2>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item reveal" data-caption="이탈리아 · 콜로세움">
+        <img src="https://sspark.genspark.ai/cfimages?u1=al0y6TiVYV5WFUST1mbB7kWAhjql9mxLpvldW%2FYgLLyWc7iSNULwDdKrUa0vTYwPs3%2B6qCQxipxWGfa7%2BrmDR9dQUjfM0JRy0pltemJxqOyv&u2=ewYuKoXpmKQMtcTK&width=2560" alt="이탈리아 콜로세움" loading="lazy">
+      </div>
+      <div class="gallery-item reveal" data-caption="크로아티아 · 두브로브니크">
+        <img src="https://sspark.genspark.ai/cfimages?u1=Uj9CGxQMJWPdCTrBkqy3RAmH3Li66LebXl4OEIOexENOZ1Vb2tZ5b5L2UWxGmXHuwbUJDpVqFSMufwyN1pWX4bSKQWvHrvDmgVW5VgW5jUIF9bh81IPW3MuY2y2oaxyUs2DYjPru6Cw13aUihauyAH6JJ6bbT%2BAFy%2Bb%2BqqbQOClH7xsHTPgYverjYoaY%2Ff1mZMqcyt8%3D&u2=KDlHXqJ4uuRGWnna&width=2560" alt="크로아티아 두브로브니크" loading="lazy">
+      </div>
+      <div class="gallery-item reveal" data-caption="슬로베니아 · 블레드 호수">
+        <img src="https://sspark.genspark.ai/cfimages?u1=57JWRQnmGOr1HkQAMJW3nhcR71ofuks%2BOD9HzEJDMJ0E7aF3W2wYNze09YQRsHwBLre6LoIF5dCHQcL9qSKJbw231mNf7V6JvYKQ12v3hb76n3SeAmk%3D&u2=RPYVOxBUOCndJpT1&width=2560" alt="슬로베니아 블레드 호수" loading="lazy">
+      </div>
+      <div class="gallery-item reveal" data-caption="터키 · 카파도키아">
+        <img src="https://sspark.genspark.ai/cfimages?u1=Bt30wSJWPogHglqe4zo3vBic%2BIfwZ59XT4Ya57wmCSTTW7gs%2Fs8cXgNTcKhW90m9ZUOxZosX6btvHYykL6Dh%2FUjO3Shz9KNWsfJ8bZJBynGktAaiqeVcF8vvKUhk1jPoXk%2B1Wiqjy1ovJ1x%2Fhg%3D%3D&u2=RM%2Fy85hpK3iUJIdv&width=2560" alt="터키 카파도키아" loading="lazy">
+      </div>
+      <div class="gallery-item reveal" data-caption="프랑스 · 에펠탑">
+        <img src="https://sspark.genspark.ai/cfimages?u1=AfRcBePv%2FvtPyDIBnVKelDUIJaOgcjJ7V1sExGZcHsK13nik8Z3uEk4D6S8OKcWExsxgofXYSV%2FyvrVwvN9tNOEcN56fkNoyoxt4us7hmtmIfm7qxeYMVdTTAspfRRGHGXCDr3d3Ww%3D%3D&u2=%2BaA93yTsF6JiaqXa&width=2560" alt="프랑스 에펠탑" loading="lazy">
+      </div>
+      <div class="gallery-item reveal" data-caption="스페인 · 사그라다 파밀리아">
+        <img src="https://sspark.genspark.ai/cfimages?u1=RcKpTl7bSIHyAQqFnUJMi9qYDaS8Xr8vi%2FnutP9ai4bFU%2Bjxzd1F8RY8m2zzHLkKuIhi7%2FVBsmZwOKSQrNZQmjgSZhBJWYt8gzbycbdXWlywoTgnd0WN7v1xZl44fHDapYJyLe0hJgqmJ3nuWxjXMHwSJcM%2B&u2=80L8UDibwQwJOqML&width=2560" alt="스페인 사그라다 파밀리아" loading="lazy">
+      </div>
+      <div class="gallery-item reveal" data-caption="마라톤 결승선">
+        <img src="https://sspark.genspark.ai/cfimages?u1=RlrNqE7BPdJQUn5nr8aAdQiUcT0pVIcBdVRinGZAGgf%2Bca4unURq5WLBAintdIzRlftPT2WH3YzelRidqaFzItEDjg8iHqJnJuDmkVanon44oJkMZEEi8W0%3D&u2=4DBcZ1A3apepN4vp&width=2560" alt="마라톤" loading="lazy">
+      </div>
+      <div class="gallery-item reveal" data-caption="등산 · 산 정상">
+        <img src="https://sspark.genspark.ai/cfimages?u1=jrRIS7VEIwuTWyF%2FM6JaYceVMKhHA0%2By3POqTd0gXI7qAe9gvPOmzYfORIt5woJ7aMk2799zslRiDq2lKezqu%2FQYxOMmkw1%2FdPDiqO9oM0jDbprKbExJet%2FDqc5v5CdTR6lURB2LDxZCddEuOcnUxHyQyY5WO2AmdJMV12OhLzM90ZMxDNfKyBbBxCpTVu8LvylmzKHDAT2MpTEJoPusS9RYRVLYpFb2xlf4nIZhs9U%2BJYzpsPQ%2ByxUG%2F1T79PZZYPQe0nmzGLYKTczvJXqyR6u9Ft4Vy5dfwZAAakW4Jw%3D%3D&u2=MB2uORAbXHa%2BV2CB&width=2560" alt="등산" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section contact-section">
+    <div class="section-head">
+      <span class="section-tag">// 05 CONTACT</span>
+      <h2 class="section-title">다음 여정을 <span class="text-gradient">함께 나누고 싶습니다</span></h2>
+      <p class="section-desc">여행, 경관 디자인, 러닝/등산 이야기가 궁금하시다면 언제든 연락 주세요.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <i class="fa-solid fa-envelope"></i>
+        <h4>Email</h4>
+        <p id="contact-email">contact@hanhonggu.dev</p>
+      </div>
+      <div class="contact-card reveal" style="--delay:0.1s">
+        <i class="fa-solid fa-location-dot"></i>
+        <h4>Base</h4>
+        <p>대한민국 (Republic of Korea)</p>
+      </div>
+      <div class="contact-card reveal" style="--delay:0.2s">
+        <i class="fa-solid fa-hashtag"></i>
+        <h4>Keywords</h4>
+        <p>#경관디자인 #유럽여행 #마라톤 #등산 #무음주라이프</p>
+      </div>
+    </div>
+
+    <form class="contact-form reveal" id="contact-form">
+      <div class="form-row">
+        <input type="text" name="name" placeholder="성함" required>
+        <input type="email" name="email" placeholder="이메일" required>
+      </div>
+      <textarea name="message" rows="4" placeholder="메시지를 남겨주세요" required></textarea>
+      <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> 메시지 전송</button>
+      <p class="form-note">※ 본 폼은 정적 사이트 데모용이며 실제 전송 서버는 연결되어 있지 않습니다.</p>
+    </form>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-logo">[HAN.HG]</p>
+    <p>&copy; 2026 한홍구(Han Hongguu). 여행하고, 뛰고, 오르는 삶.</p>
+    <div class="footer-socials">
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" aria-label="Strava"><i class="fa-brands fa-strava"></i></a>
+      <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+
+<button id="scroll-top" aria-label="맨 위로"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="닫기"><i class="fa-solid fa-xmark"></i></button>
+  <img src="" alt="" id="lightbox-img">
+  <p id="lightbox-caption"></p>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
